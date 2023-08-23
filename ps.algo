@@ -1,0 +1,50 @@
+PROCEDURE dot_product(ps:INTEGER VAR v1 , v2 : ARRAY_OF INTEGER)
+VAR
+    i :INTEGER
+BEGIN
+    FOR i FROM 0 TO x  DO
+        ps = ps + v1[i] * v2[i]
+    END_FOR
+    IF (ps=0) THEN
+        write(les vecteurs sont orthogonaux);
+    
+    END_IF
+END
+
+
+FUNCTION dot_product() : INTEGER
+VAR
+    ps : INTEGER
+
+BEGIN
+    FOR i FROM 0 TO x DO
+         ps = ps + v1[i] * v2[i]
+    END_FOR
+    
+    IF (ps=0) THEN
+    
+        RETURN les vecteurs sont orthogonaux ;
+        
+        ELSE
+        RETURN les vecteurs ne sont pas orthogonaux ;
+        END_IF
+    
+    END_IF
+    RETURN les vecteurs sont orthogonaux ;
+END
+
+
+
+
+
+
+ALGORITHM produit_scalaire
+VAR
+    x : INTEGER = 0 ;
+    v1 : ARRAY_OF INTEGER[x];
+    v2 : ARRAY_OF INTEGER[x];
+    ps : INTEGER ;
+BEGIN
+    //sub algo calcul produit scalaire
+    dot_product(ps:INTEGER VAR v1 , v2 : ARRAY_OF INTEGER)
+END

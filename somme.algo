@@ -1,0 +1,82 @@
+PROCEDURE add_sum(sum : INTEGER =0)
+VAR
+    i : INTEGER
+BEGIN
+    sum := sum + tab[i]
+    write(sum)
+END
+PROCEDURE readind_array(x1 , x2 :INTEGER VAR tab1 , tab2 : ARRAY_OF INTEGER)
+VAR
+    i,j : INTEGER ;
+BEGIN
+    FOR i FROM 0 TO x1 DO
+        Read(tab1[i]);
+    END_FOR
+    FOR j FROM 0 TO x2 DO
+        Read(tab2[j]);
+    END_FOR
+END
+
+FUNCTION read_size() : INTEGER ;
+VAR
+    x1 , x2 : INTEGER ;
+BEGIN
+    REPEAT
+        Read(x1)
+    UNTIL ( x1 <=0)
+    RETURN x1 ;
+    REPEAT
+        Read(x2)
+    UNTIL ( x2 <=0)
+    RETURN x2 ;
+END
+PROCEDURE compare_element(x1 , x2 ,sum :INTEGER VAR tab1 , tab2 : ARRAY_OF INTEGER) 
+VAR
+    i,j: INTEGER ;
+    appartient : BOOLEAN ;
+BEGIN
+    FOR i FROM 0 TO x1 DO
+    FOR j FROM 0 TO x2 DO
+        IF (tab1[i] = tab2[j]) THEN
+        appartient = true
+        END_IF
+    END_FOR
+    IF (appartient=false) THEN
+        sum = sum + tab1[i]
+    END_IF
+    END_FOR
+    FOR j FROM 0 TO x2 DO
+    FOR i FROM 0 TO x1 DO
+        IF (tab2[j] = tab1[i]) THEN
+        appartient = true
+        END_IF
+    END_FOR
+    IF (appartient=false) THEN
+        sum = sum + tab2[j]
+    END_IF
+    END_FOR
+    
+END
+
+ALGORITHM sum_element_distinct
+VAR
+    tab1 : ARRAY_OF INTEGER[x1];
+    tab2 : ARRAY_OF INTEGER[x2];
+    i : INTEGER ;
+    appartient : BOOLEAN
+
+BEGIN
+    //read size of element
+    x1 := read_size();
+    x2 := read_size();
+    //sub algoritm readind element of array
+    readind_array(x1 , tab1);
+    readind_array(x2 , tab2);
+
+    
+
+    //sub algoritm compare element
+    compare_element(x1 , x2 ,sum :INTEGER VAR tab1 , tab2 : ARRAY_OF INTEGER) 
+    //sub algoritm sum element
+    add_sum(sum)
+END
